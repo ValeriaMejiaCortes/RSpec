@@ -20,5 +20,19 @@ RSpec.describe 'equalty matchers' do
     end
   end
 
+  #checking that two things are actually the same thing, the same object in memory
+  describe 'equal and be matcher' do
+    let(:c) { [1, 2, 3] }
+    let(:d) { [1, 2, 3] }
+    let(:e) { c }
 
+    it 'cares about object identity' do
+      expect(c).to eq(d)
+      expect(c).to eql(d)
+      #the same array for that return true
+      expect(c).to equal(e)
+      expect(c).to be(e)
+
+    end
+  end
 end
